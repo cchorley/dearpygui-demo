@@ -41,6 +41,8 @@ jobs:
             CMD_BUILD: >
                 pyinstaller -F dearpygui_demo.py &&
                 cd dist/ &&
+                ls -la &&
+                ls -la dearpygui_demo &&
                 zip -r9 dearpygui_demo dearpygui_demo.app/
             OUT_FILE_NAME: dearpygui_demo.zip
             ASSET_MIME: application/zip
@@ -60,9 +62,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Build with pyinstaller for ${{matrix.TARGET}}
-      run: |
-        ls -la dist
-        ${{matrix.CMD_BUILD}}
+      run: ${{matrix.CMD_BUILD}}
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
       with:
