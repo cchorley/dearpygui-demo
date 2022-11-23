@@ -41,9 +41,7 @@ jobs:
             CMD_BUILD: >
                 pyinstaller -F dearpygui_demo.py &&
                 cd dist/ &&
-                ls -la &&
-                ls -la dearpygui_demo &&
-                zip -r9 dearpygui_demo dearpygui_demo.app/
+                zip -r9 dearpygui_demo dearpygui_demo
             OUT_FILE_NAME: dearpygui_demo.zip
             ASSET_MIME: application/zip
           - os: windows-latest
